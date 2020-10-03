@@ -7,18 +7,16 @@ public class SpawnerMonedas : MonoBehaviour
     FuncionDeTrayectoria fdet;
 
     [SerializeField] GameObject monedaGO;
-    [SerializeField] int cantidadDeMonedas = 10;
     [SerializeField] float offsetDeSeparacion = 1.0f;
-    // Start is called before the first frame update
-    void Start()
+
+    public void SpawnCoins(int coinsCount)
     {
         fdet = FindObjectOfType<FuncionDeTrayectoria>();
 
-        for (int i = 0; i < cantidadDeMonedas; i++)
+        for (int i = 0; i < coinsCount; i++)
         {
-            float iter = i / (float)cantidadDeMonedas;
-            Instantiate(monedaGO, fdet.TrayectoriaCircular(iter, fdet.Radio+offsetDeSeparacion), Quaternion.identity);
+            float iter = i / (float)coinsCount;
+            Instantiate(monedaGO, fdet.TrayectoriaCircular(iter, fdet.Radio + offsetDeSeparacion), Quaternion.identity);
         }
     }
-
 }

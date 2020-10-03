@@ -9,19 +9,20 @@ public class SpawnerEnemigo : MonoBehaviour
     float tiempo = 0;
 
     [SerializeField] GameObject enemigoGO;
-    [SerializeField] int cantidadDeEnemigos = 10;
     [SerializeField] float velocidad = .15f;
 
     // Start is called before the first frame update
-    void Start()
+    public void SpawnEnemies(int enemiesCount, float spawnOffset)
     {
         mov = FindObjectOfType<Movimiento>();
         fdet = FindObjectOfType<FuncionDeTrayectoria>();
 
-        for (int i = 0; i < cantidadDeEnemigos; i++)
+        for (int i = 0; i < enemiesCount; i++)
         {
+            float timeMod = (i * Mathf.PI * 2 * fdet.Radio * spawnOffset) / enemiesCount;
+            Debug.Log("Trayectoria: " + fdet.TrayectoriaCircular(tiempo + timeMod, fdet.Radio));
             Enemigo e = Instantiate(enemigoGO, fdet.TrayectoriaCircular(tiempo, fdet.Radio), Quaternion.identity).GetComponent<Enemigo>();
-            e.tiempo = mov.tiempo + 2.5f;
+            e.tiempo = mov.tiempo + 2.5f + timeMod;
         }
     }
 }
