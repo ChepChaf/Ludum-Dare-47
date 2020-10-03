@@ -25,8 +25,16 @@ public class SoundOnCollision : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Play Sound for:" + this.gameObject.name);
-            soundManager.PlayCollisionSound(objectName);
+            if (this.gameObject.CompareTag("Enemy"))
+            {
+                Debug.Log("Play Sound for:" + this.gameObject.name);
+                soundManager.PlayCollisionSound("Collide Enemy");
+            }
+            else if (this.gameObject.CompareTag("Coin"))
+            {
+                Debug.Log("Play Sound for:" + this.gameObject.name);
+                soundManager.PlayCollisionSound("Pick Up Coin");
+            }
         }
 
     }

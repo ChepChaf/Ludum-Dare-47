@@ -32,7 +32,8 @@ public class Movimiento : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.E))
         {
-            soundManager.PlayJumpSound();
+            soundManager.PlaySound("Jump Sound");
+
             if (!isJumping)
             {
                 StartCoroutine(Jump());
