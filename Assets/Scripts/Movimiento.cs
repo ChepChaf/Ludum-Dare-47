@@ -12,9 +12,12 @@ public class Movimiento : MonoBehaviour
     bool isJumping = false;
     public float JumpSpeed = 1;
 
+    private SoundManager soundManager;
+
     private void Start()
     {
         fdet = FindObjectOfType<FuncionDeTrayectoria>();
+        soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
     }
 
     // Update is called once per frame
@@ -29,7 +32,8 @@ public class Movimiento : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.E))
         {
-            if(!isJumping)
+            soundManager.PlayJumpSound();
+            if (!isJumping)
             {
                 StartCoroutine(Jump());
             }

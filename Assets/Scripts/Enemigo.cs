@@ -8,6 +8,8 @@ public class Enemigo : MonoBehaviour
     public float tiempo = 0;
     [SerializeField] float velocidadDeGiro = 0.2f;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,5 +26,11 @@ public class Enemigo : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         print("DEAD");
+
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            
+        }    
+
     }
 }
