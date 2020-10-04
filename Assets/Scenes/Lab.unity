@@ -326,6 +326,92 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1030478347
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1030478350}
+  - component: {fileID: 1030478349}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1030478349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030478347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df7031340103c40379a4ce1b624459cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Open Screen Mx
+    clip: {fileID: 8300000, guid: 19a73d1ec33984ed9a5a182b304577d5, type: 3}
+    volume: 0.257
+    pitch: 1
+    loop: 1
+    playOnAwake: 1
+    source: {fileID: 0}
+    audioOutput: {fileID: 6786700508796462593, guid: 6141394051d1c42d89be40dff4c50eef,
+      type: 2}
+  - name: Game Play Mx
+    clip: {fileID: 8300000, guid: 2909b0c92f7354043a81e42fb672b0df, type: 3}
+    volume: 0.307
+    pitch: 1
+    loop: 1
+    playOnAwake: 1
+    source: {fileID: 0}
+    audioOutput: {fileID: -1362292915254040125, guid: 6141394051d1c42d89be40dff4c50eef,
+      type: 2}
+  - name: Jump Sound
+    clip: {fileID: 8300000, guid: 9dac96bb9b9954733a91cc37571a3ebd, type: 3}
+    volume: 0.357
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+    audioOutput: {fileID: 0}
+  - name: Collide Enemy
+    clip: {fileID: 8300000, guid: 1878175c749aa4b7bbc202a2706db533, type: 3}
+    volume: 0.157
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+    audioOutput: {fileID: 0}
+  - name: Pick Up Coin
+    clip: {fileID: 8300000, guid: cca5ab50e1bfa4bf89b8339b34d8a2e8, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+    audioOutput: {fileID: 0}
+--- !u!4 &1030478350
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030478347}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.2704941, y: -0.03341239, z: -0.0035990714}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1142757376
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,7 +426,7 @@ GameObject:
   - component: {fileID: 1142757379}
   m_Layer: 0
   m_Name: Jugador
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -411,7 +497,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.355
 --- !u!1 &1167155591
 GameObject:
   m_ObjectHideFlags: 0
