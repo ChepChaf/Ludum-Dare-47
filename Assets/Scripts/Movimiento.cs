@@ -7,8 +7,10 @@ public class Movimiento : MonoBehaviour
     private FuncionDeTrayectoria fdet;
 
     public float velocidadDeGiro = 0.1f;
-    public float tiempo = 0;
 
+    int positionIndex = 0;
+
+    bool isMoving = false;
     bool isJumping = false;
     public float JumpSpeed = 1;
 
@@ -25,9 +27,11 @@ public class Movimiento : MonoBehaviour
     {
         if (!isJumping)
         {
-            tiempo += Time.deltaTime;
-
-            transform.position = Vector3.Lerp(transform.position, fdet.Trajectory(tiempo * velocidadDeGiro), Time.deltaTime);
+            if (!isMoving)
+            {
+                StopAllCoroutines();
+                StartCoroutine(Move());
+            }
         }
 
         if(Input.GetKeyDown(KeyCode.E))
@@ -36,9 +40,28 @@ public class Movimiento : MonoBehaviour
 
             if (!isJumping)
             {
+                StopAllCoroutines();
+                isMoving = false;
                 StartCoroutine(Jump());
             }
         }
+    }
+
+    public IEnumerator Move()
+    {
+        isMoving = true;
+        Vector3 nextPosition = fdet.Trajectory(positionIndex++);
+
+        if (positionIndex > FuncionDeTrayectoria.maxIndex) 
+            positionIndex = 0;
+
+        while (transform.position != nextPosition)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, nextPosition, Time.deltaTime * velocidadDeGiro);
+
+            yield return new WaitForEndOfFrame();
+        }
+        isMoving = false;
     }
 
     public IEnumerator Jump()
@@ -47,7 +70,10 @@ public class Movimiento : MonoBehaviour
         float t = 0;
 
         Vector3 startPos = transform.position;
-        Vector3 targetPos = fdet.Trajectory((tiempo+5f) * velocidadDeGiro);
+
+        positionIndex = (positionIndex+5) % FuncionDeTrayectoria.maxIndex;
+
+        Vector3 targetPos = fdet.Trajectory(positionIndex);
 
         while (t <= JumpSpeed)
         {
@@ -57,7 +83,6 @@ public class Movimiento : MonoBehaviour
 
             yield return new WaitForEndOfFrame();
         }
-        tiempo += 5;
         isJumping = false;
     }
 }

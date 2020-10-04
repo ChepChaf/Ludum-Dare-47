@@ -4,21 +4,24 @@ using UnityEngine;
 
 public class FuncionDeTrayectoria : MonoBehaviour
 {
+    public static int maxIndex;
     public List<Transform> points;
-    public Vector3 Trajectory(float tiempo, float offset=0)
+    public Vector3 Trajectory(int index, float offset = 0, bool clockwise = false)
     {
         if (points.Count == 0) return new Vector3();
 
-        int index = (int)(tiempo * points.Count) % points.Count;
-        if (index < 0)
-            index = points.Count + index;
+        if (index > points.Count - 1)
+            index %= points.Count;
+
+        if (clockwise)
+            index = points.Count - index - 1;
 
         return points[index].position + (Vector3.one * offset);
     }
 
     private void OnDrawGizmos()
     {
-        for(int i = 0; i < points.Count-1; i++)
+        for(int i = 0; i < points.Count - 1; i++)
         {
             Gizmos.DrawLine(points[i].position, points[i + 1].position);
         }

@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tiempo: 0
-  velocidadDeGiro: -0.2
+  velocidadDeGiro: -2
 --- !u!50 &8173393387870962424
 Rigidbody2D:
   serializedVersion: 4

@@ -15,8 +15,7 @@ public class SpawnerMonedas : MonoBehaviour
 
         for (int i = 0; i < coinsCount; i++)
         {
-            float iter = i / (float)coinsCount;
-            Instantiate(monedaGO, fdet.Trajectory(iter), Quaternion.identity);
+            Instantiate(monedaGO, fdet.Trajectory(i), Quaternion.identity);
         }
     }
 }

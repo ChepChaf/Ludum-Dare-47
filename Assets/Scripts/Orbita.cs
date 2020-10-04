@@ -15,8 +15,7 @@ public class Orbita : MonoBehaviour
 
         for (int i = 0; i <= resolucion; i++)
         {
-            float iter = i / (float)resolucion;
-            lineRenderer.SetPosition(i, fdet.Trajectory(iter));
+            lineRenderer.SetPosition(i, fdet.Trajectory(i));
         }
         
     }

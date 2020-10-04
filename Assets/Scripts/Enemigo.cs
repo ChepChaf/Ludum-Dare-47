@@ -8,7 +8,9 @@ public class Enemigo : MonoBehaviour
     public float tiempo = 0;
     [SerializeField] float velocidadDeGiro = 0.2f;
 
-    
+    public int positionIndex = 0;
+
+    bool isMoving = false;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +22,29 @@ public class Enemigo : MonoBehaviour
     void Update()
     {
         tiempo += Time.deltaTime;
-        transform.position = Vector3.Lerp(transform.position, fdet.Trajectory(tiempo * velocidadDeGiro), Time.deltaTime);
+        
+        if (!isMoving)
+        {
+            StopAllCoroutines();
+            StartCoroutine(Move());
+        }
+    }
+
+    public IEnumerator Move()
+    {
+        isMoving = true;
+        Vector3 nextPosition = fdet.Trajectory(positionIndex++, 0f, true);
+
+        if (positionIndex >= FuncionDeTrayectoria.maxIndex)
+            positionIndex = 0;
+
+        while (transform.position != nextPosition)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, nextPosition, Time.deltaTime);
+
+            yield return new WaitForEndOfFrame();
+        }
+        isMoving = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
