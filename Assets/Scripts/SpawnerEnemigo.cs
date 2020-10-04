@@ -19,9 +19,9 @@ public class SpawnerEnemigo : MonoBehaviour
 
         for (int i = 0; i < enemiesCount; i++)
         {
-            float timeMod = (i * Mathf.PI * 2 * fdet.Radio * spawnOffset) / enemiesCount;
-            Debug.Log("Trayectoria: " + fdet.TrayectoriaCircular(tiempo + timeMod, fdet.Radio));
-            Enemigo e = Instantiate(enemigoGO, fdet.TrayectoriaCircular(tiempo, fdet.Radio), Quaternion.identity).GetComponent<Enemigo>();
+            float timeMod = (i * Mathf.PI * 2 * spawnOffset) / enemiesCount;
+            Debug.Log("Trayectoria: " + fdet.Trajectory(tiempo));
+            Enemigo e = Instantiate(enemigoGO, fdet.Trajectory(tiempo), Quaternion.identity).GetComponent<Enemigo>();
             e.tiempo = mov.tiempo + 2.5f + timeMod;
         }
     }

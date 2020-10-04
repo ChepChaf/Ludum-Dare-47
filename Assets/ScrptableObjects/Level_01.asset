@@ -15,3 +15,5 @@ MonoBehaviour:
   coinsCount: 7
   enemiesCount: 4
   spawnOffset: 100
+  trajectory: {fileID: 8213355856096313212, guid: 4eef8c3bb3df4c74cbe1fcaff2b6e7c7,
+    type: 3}

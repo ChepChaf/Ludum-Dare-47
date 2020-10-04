@@ -20,7 +20,7 @@ public class Enemigo : MonoBehaviour
     void Update()
     {
         tiempo += Time.deltaTime;
-        transform.position = fdet.TrayectoriaCircular(tiempo * velocidadDeGiro);
+        transform.position = Vector3.Lerp(transform.position, fdet.Trajectory(tiempo * velocidadDeGiro), Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

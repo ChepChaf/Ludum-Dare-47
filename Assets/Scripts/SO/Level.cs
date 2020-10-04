@@ -3,10 +3,12 @@
 [CreateAssetMenu(fileName = "New Level", menuName = "Levels/Create Level")]
 public class Level : ScriptableObject
 {
-    // Coins Config
+    [Header("Coins")]
     public int coinsCount;
 
-    // Enemies Config
+    [Header("Enemies")]
     public int enemiesCount;
     public float spawnOffset;
+    
+    public GameObject trajectory;
 }

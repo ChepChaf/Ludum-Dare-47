@@ -27,7 +27,7 @@ public class Movimiento : MonoBehaviour
         {
             tiempo += Time.deltaTime;
 
-            transform.position = fdet.TrayectoriaCircular(tiempo * velocidadDeGiro);
+            transform.position = Vector3.Lerp(transform.position, fdet.Trajectory(tiempo * velocidadDeGiro), Time.deltaTime);
         }
 
         if(Input.GetKeyDown(KeyCode.E))
@@ -47,7 +47,7 @@ public class Movimiento : MonoBehaviour
         float t = 0;
 
         Vector3 startPos = transform.position;
-        Vector3 targetPos = fdet.TrayectoriaCircular((tiempo+5f) * velocidadDeGiro);
+        Vector3 targetPos = fdet.Trajectory((tiempo+5f) * velocidadDeGiro);
 
         while (t <= JumpSpeed)
         {

@@ -7,7 +7,7 @@ public class Orbita : MonoBehaviour
     LineRenderer lineRenderer;
     public int resolucion;
 
-    void Start()
+    public void DrawOrbit()
     {
         FuncionDeTrayectoria fdet = FindObjectOfType<FuncionDeTrayectoria>();
         lineRenderer = GetComponent<LineRenderer>();
@@ -16,7 +16,7 @@ public class Orbita : MonoBehaviour
         for (int i = 0; i <= resolucion; i++)
         {
             float iter = i / (float)resolucion;
-            lineRenderer.SetPosition(i, fdet.TrayectoriaCircular(iter));
+            lineRenderer.SetPosition(i, fdet.Trajectory(iter));
         }
         
     }
