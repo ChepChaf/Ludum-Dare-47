@@ -13,11 +13,17 @@ public class Sound
     [Range(0.5f,2f)]
     public float pitch;
 
+   
     public bool loop;
+
     public bool playOnAwake;
 
     [HideInInspector]
     public AudioSource source;
+
+
+
+    public AudioMixerGroup audioOutput;
 
    
     

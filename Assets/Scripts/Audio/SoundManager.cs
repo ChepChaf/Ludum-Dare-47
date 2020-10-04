@@ -6,6 +6,7 @@ public class SoundManager : MonoBehaviour
 {
     public Sound[] sounds;
 
+   
 
     private void Awake()
     {
@@ -16,13 +17,16 @@ public class SoundManager : MonoBehaviour
             sfx.source.volume = sfx.volume;
             sfx.source.pitch = sfx.pitch;
             sfx.source.playOnAwake = sfx.playOnAwake;
+            sfx.source.outputAudioMixerGroup = sfx.audioOutput;
 
         }
     }
 
-    public void PlaySound(string name)
+
+     public void PlaySound(string name)
     {
-        Sound sfx = Array.Find(sounds, sound => sound.name == name);
+        
+        Sound sfx = Array.Find(sounds, sound => sound.name == name);  
         sfx.source.Play();
     }
 

@@ -357,19 +357,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: Open Screen Mx
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
-    loop: 0
-    playOnAwake: 0
+    clip: {fileID: 8300000, guid: 19a73d1ec33984ed9a5a182b304577d5, type: 3}
+    volume: 0.257
+    pitch: 1
+    loop: 1
+    playOnAwake: 1
     source: {fileID: 0}
+    audioOutput: {fileID: 6786700508796462593, guid: 6141394051d1c42d89be40dff4c50eef,
+      type: 2}
   - name: Game Play Mx
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
-    loop: 0
-    playOnAwake: 0
+    clip: {fileID: 8300000, guid: 2909b0c92f7354043a81e42fb672b0df, type: 3}
+    volume: 0.307
+    pitch: 1
+    loop: 1
+    playOnAwake: 1
     source: {fileID: 0}
+    audioOutput: {fileID: -1362292915254040125, guid: 6141394051d1c42d89be40dff4c50eef,
+      type: 2}
   - name: Jump Sound
     clip: {fileID: 8300000, guid: 9dac96bb9b9954733a91cc37571a3ebd, type: 3}
     volume: 0.357
@@ -377,20 +381,23 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
+    audioOutput: {fileID: 0}
   - name: Collide Enemy
     clip: {fileID: 8300000, guid: 1878175c749aa4b7bbc202a2706db533, type: 3}
-    volume: 0.2
+    volume: 0.157
     pitch: 1
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
+    audioOutput: {fileID: 0}
   - name: Pick Up Coin
     clip: {fileID: 8300000, guid: cca5ab50e1bfa4bf89b8339b34d8a2e8, type: 3}
-    volume: 0.5
+    volume: 0.3
     pitch: 1
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
+    audioOutput: {fileID: 0}
 --- !u!4 &1030478350
 Transform:
   m_ObjectHideFlags: 0
