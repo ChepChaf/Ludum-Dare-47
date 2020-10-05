@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     Level currentLevel;
 
     private SoundManager soundManager;
+    [SerializeField]
+    private GameObject menuPause;
 
     private GameObject trajectory;
     FuncionDeTrayectoria fdet;
@@ -33,6 +35,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+        menuPause = Instantiate(menuPause);
     }
 
     private void OnEnable()

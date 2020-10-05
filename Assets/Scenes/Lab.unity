@@ -605,6 +605,9 @@ MonoBehaviour:
   orbit: {fileID: 1265656029}
   levels:
   - {fileID: 11400000, guid: 67d6bbf3ffc1394418dd05b4a37489e2, type: 2}
+  menuPause: {fileID: 7317155627037900907, guid: cd3a6f7416d2506499a0b66fa0090f4e,
+    type: 3}
+  coinsPicked: 0
 --- !u!1001 &1829956895
 PrefabInstance:
   m_ObjectHideFlags: 0
