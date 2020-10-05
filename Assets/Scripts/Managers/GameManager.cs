@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public delegate void OnGameOver();
+    public static event OnGameOver onGameOverEvent;
+
     public bool isGameOver = false;
 
     [SerializeField]
@@ -24,9 +27,35 @@ public class GameManager : MonoBehaviour
 
     private GameObject trajectory;
     FuncionDeTrayectoria fdet;
+
+    public int coinsPicked = 0;
+
     private void Awake()
     {
         soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+    }
+
+    private void OnEnable()
+    {
+        Enemigo.onPlayerCollisionEvent += TriggerGameOver;
+        Moneda.onCoinPickedEvent += PickCoin;
+    }
+
+    private void OnDisable()
+    {
+        Enemigo.onPlayerCollisionEvent -= TriggerGameOver;
+        Moneda.onCoinPickedEvent -= PickCoin;
+    }
+
+    void PickCoin()
+    {
+        coinsPicked++;
+    }
+
+    void TriggerGameOver()
+    {
+        isGameOver = true;
+        onGameOverEvent?.Invoke();
     }
 
     private void Start()

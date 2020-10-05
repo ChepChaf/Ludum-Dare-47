@@ -1,9 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemigo : MonoBehaviour
 {
+    public delegate void OnPlayerCollision();
+    public static event OnPlayerCollision onPlayerCollisionEvent;
+
+
     FuncionDeTrayectoria fdet;
     public float tiempo = 0;
     [SerializeField] float velocidadDeGiro = 0.2f;
@@ -49,12 +54,10 @@ public class Enemigo : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print("DEAD");
-
         if(collision.gameObject.CompareTag("Player"))
         {
-            
+            Destroy(collision.gameObject);
+            onPlayerCollisionEvent?.Invoke();
         }    
-
     }
 }
